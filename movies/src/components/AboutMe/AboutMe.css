@@ -1,0 +1,163 @@
+.student {
+  margin: 0 auto;
+  max-width: 1140px;
+  padding: 110px 0 43px;
+}
+
+.student__header {
+  font-size: 22px;
+  font-weight: 400;
+  line-height: 27px;
+  letter-spacing: -0.04em;
+  text-align: left;
+  border-bottom: 1px solid #DADADA;
+  padding-bottom: 23px;
+  margin: 0 auto;
+  width: 1140px;
+}
+
+.about-student__conteiner {
+  display: flex;
+  justify-content: space-between;
+}
+
+.about-student__text-title {
+  font-size: 50px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 58px;
+  letter-spacing: -2px;
+  margin: 66px 0 18px;
+}
+
+.about-student__text-sybtitle {
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 20px;
+}
+
+.about-student__text-info {
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 22px;
+  margin: 26px 0 99px;
+  max-width: 599px;
+}
+
+.about-student__link-gh {
+  color: #fff;
+  text-decoration: none;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+
+.about-student__link-gh:hover {
+  opacity: 0.7;
+}
+
+.about-student__photo {
+  width: 270px;
+  height: 327px;
+  object-fit: cover;
+  margin-top: 66px;
+  border-radius: 10px;
+  order: 2;
+}
+
+.about-student__text-cover {
+  order: 1;
+}
+
+@media all and (max-width: 1279px) {
+  .student {
+    max-width: 668px;
+    padding: 90px 0 45px;
+  }
+  
+  .student__header {
+    letter-spacing: -0.88px;
+    width: 668px;
+  }
+  
+  .about-student__text-title {
+    font-size: 40px;
+    line-height: 40px;
+    letter-spacing: -1.6px;
+    margin: 66px 0 16px;
+    width: 364px;
+  }
+  
+  .about-student__text-sybtitle {
+    font-size: 12px;
+    line-height: 18px;
+    width: 364px;
+  }
+  
+  .about-student__text-info {
+    font-size: 12px;
+    line-height: 18px;
+    margin: 20px 0 87px;
+    max-width: 363px;
+  }
+
+  .about-student__photo {
+    width: 255px;
+    height: 307px;
+  }
+}
+
+
+@media all and (max-width: 767px) {
+  .student {
+    max-width: 292px;
+    padding: 61px 0 0;
+  }
+  
+  .student__header {
+    font-size: 18px;
+    letter-spacing: -0.72px;
+    padding-bottom: 25px;
+    margin: 0 auto;
+    width: 292px;
+  }
+
+  .about-student__conteiner {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .about-student__text-title {
+    font-size: 30px;
+    letter-spacing: -1.2px;
+    margin: 40px 0 16px;
+    width: 292px;
+  }
+  
+  .about-student__text-sybtitle {
+    font-size: 11px;
+    line-height: 16px;
+    width: 292px;
+  }
+
+  .about-student__text-info {
+    font-size: 11px;
+    line-height: 16px;
+    margin: 20px 0 40px;
+    max-width: 292px;
+  }
+
+  .about-student__photo {
+    width: 292px;
+    height: 352px;
+    order: 1;
+    margin-top: 60px;
+  }
+
+  .about-student__text-cover {
+    order: 2;
+  }
+}

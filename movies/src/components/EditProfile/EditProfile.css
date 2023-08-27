@@ -1,0 +1,146 @@
+.profile-edit__cover {
+  width: 1280px;
+  margin: 0 auto;
+  min-height: 100vh;
+  padding-bottom: 50px;
+}
+
+.profile-edit__content {
+  width: 410px;
+  margin: 0 auto;
+}
+
+.profile-edit__header {
+  text-align: center;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  margin: 87px 0 108px;
+}
+
+.profile-edit__info {
+  font-size: 11px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  margin-bottom: 201px;
+  position: relative;
+}
+
+.profile-edit__label-cover {
+  display: flex;
+  justify-content: space-between;
+  width: 410px;
+}
+
+.profile-edit__label-cover_type_border {
+  border-bottom: 1px solid #424242;
+}
+
+.profile-edit__fieldset {
+  padding: 0;
+  border: none;
+  max-width: 410px;
+}
+
+.profile-edit__input {
+  border: none;
+  background-color: transparent;
+  padding: 0;
+  margin: 0;
+  color: #fff;
+  text-align: right;
+}
+
+.button_type_save-profile {
+  text-align: center;
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  cursor: pointer;
+  height: 45px;
+  margin-bottom: 16px;
+  padding: 13px 167px;
+  background-color: #3456F3;
+  text-decoration: none;
+  color: #fff;
+  border-radius: 3px;
+}
+
+.button_type_save-profile:hover {
+  opacity: 0.7;
+}
+
+.profile-edit__error {
+  color: #EE3465;
+  font-size: 10px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  position: absolute;
+  bottom: -163px;
+  left: 87px;
+  visibility: hidden;
+}
+
+.button_type_blocked {
+  background-color: #F8F8F8;;
+  color: #C2C2C2;
+  cursor: default;
+}
+
+.button_type_blocked:hover {
+  opacity: 1;
+}
+
+@media all and (max-width: 1279px) {
+  .profile-edit__cover {
+    width: 768px;
+  }
+  
+  .profile-edit__content {
+    width: 410px;
+  }
+  
+  .profile-edit__header {
+    margin: 251px 0 81px;
+  }
+  
+  .profile-edit__info {
+    margin-bottom: 192px;
+  }
+}
+
+
+@media all and (max-width: 767px) {
+  .profile-edit__cover {
+    width: 320px;
+  }
+  
+  .profile-edit__content {
+    width: 260px;
+  }
+  
+  .profile-edit__header {
+    margin: 85px 0 64px;
+    font-size: 24px;
+  }
+  
+  .profile-edit__info {
+    margin-bottom: 361px;
+  }
+
+  .profile-edit__fieldset {
+    max-width: 260px;
+  }
+
+  .profile-edit__label-cover {
+    width: 260px;
+  }
+
+  .button_type_save-profile {
+    padding: 13px 96px;
+  }
+}

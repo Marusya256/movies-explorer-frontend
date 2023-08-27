@@ -1,0 +1,132 @@
+.gallery-item {
+  width: 360px;
+  margin: 0 30px 60px 0;
+  position: relative;
+}
+
+.gallery-item__poster {
+  width: 360px;
+  height: 201px;
+  object-fit: cover;
+}
+
+.gallery-item__parameter {
+  display: flex;
+  justify-content: space-between;
+  margin: 12px 14px;
+}
+
+.gallery-item__title {
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  margin: 0;
+}
+
+.gallery-item__duration {
+  color: #8B8B8B;
+  text-align: center;
+  font-size: 11px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 10px;
+  padding: 3px 4px;
+  border-radius: 3px;
+  background-color: #2F2F2F;
+  margin: 0;
+}
+
+.gallery-item:hover {
+  cursor: pointer;
+}
+
+.button_type_save {
+  font-size: 11px;
+  font-style: normal;
+  font-weight: 400;
+  background-color: #313131;
+  width: 72px;
+  height: 21px;
+  color: #fff;
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  border-radius: 10px;
+  /* display: none; */
+}
+
+.button_type_delete {
+  background-image: url(../../images/icon-del.svg);
+  width: 21px;
+  height: 21px;
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  /* display: none; */
+}
+
+.button_type_ingallery {
+  background-image: url(../../images/icon-ingall.svg);
+  width: 21px;
+  height: 21px;
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  /* display: none; */
+}
+
+/* .gallery-item:hover .button_type_save {
+  display: block;
+} */
+
+/* .gallery-item:hover .button_type_delete {
+  display: block;
+} */
+.button_type_hidden {
+  display: none;
+}
+
+@media all and (max-width: 1279px) {
+  .gallery-item {
+    width: 339px;
+    margin: 0 30px 47px 0;
+  }
+  
+  .gallery-item__poster {
+    width: 339px;
+    height: 190px;
+  }
+  
+  .gallery-item__parameter {
+    margin: 21px 0 0 0;
+  }
+}
+
+
+@media all and (max-width: 767px) {
+  .gallery-item {
+    width: 300px;
+    margin: 0;
+  }
+  
+  .gallery-item__poster {
+    width: 300px;
+    height: 168px;
+  }
+  
+  .gallery-item__parameter {
+    margin: 12px 0 0 0;
+  }
+  
+  .gallery-item__title {
+    font-size: 12px;
+  }
+  
+  .gallery-item__duration {
+    font-size: 11px;
+    line-height: 10px;
+    width: 52px;
+    padding: 3px 0;
+  }
+}

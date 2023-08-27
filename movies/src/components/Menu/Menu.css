@@ -1,0 +1,115 @@
+.button_type_menu {
+  display: none;
+}
+
+@media all and (max-width: 1279px) {
+  .button_type_menu {
+    display: block;
+    cursor: pointer;
+    width: 44px;
+    height: 44px;
+    background-image: url(./../../images/menu.svg);
+    background-repeat: no-repeat;
+  }
+
+  .popup {
+    min-height: 100vh;
+    top: 0;
+    right: 0;
+    background-color: rgba(0,0,0,.5);
+    transition: visibility 0.5s, opacity 0.5s;
+    position: fixed;
+    min-height: 100vh;
+    width: 100%;
+    visibility: hidden;
+  }
+
+  .popup_opened {
+    visibility: visible;
+  }
+
+  .smt__cover {
+    width: 520px;
+    flex-direction: column;
+    background-color: #202020;
+    position: absolute;
+    right: 0;
+    min-height: 100vh;
+}
+
+  .smt__list {
+    list-style-type: none;
+    padding: 0;
+    margin: 159px auto 593px;
+    max-width: 340px;
+    text-align: center;
+  }
+
+  .smt__list-item {
+    margin-bottom: 28px;
+    cursor: pointer;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+  }
+
+  .smt__list-item-link {
+    color: #FFFFFF;
+    text-decoration: none;
+  }
+
+  .smt__button_account {
+    text-decoration: none;
+    color: #FFFFFF;
+    background-color: #313131;
+    border-radius: 25px;
+    padding: 8px 20px;
+    font-size: 14px;
+    font-weight: 500;
+    text-align: center;
+    height: 16px;
+    width: 60px;
+    display: block;
+    margin: 0 auto;
+  }
+  
+  .smt__button_account:hover {
+    opacity: 0.8;
+  }
+  
+  .smt__list_item:hover {
+    opacity: 0.8;
+  }
+
+  .button_type_menu-close {
+    width: 22px;
+    height: 22px;
+    background-image: url(./../../images/menu-close.svg);
+    position: absolute;
+    right: 22px;
+    top: 22px;
+  }
+}
+
+
+@media all and (max-width: 767px) {
+  .button_type_menu {
+    width: 40px;
+    height: 43px;
+    background-image: url(./../../images/menu-mb.svg);
+  }
+
+  .smt__cover {
+    width: 320px;
+  }
+
+  .smt__list {
+    margin: 144px auto 310px;
+    max-width: 300px;
+  }
+
+  .smt__list-item {
+    margin-bottom: 24px;
+  }
+}
