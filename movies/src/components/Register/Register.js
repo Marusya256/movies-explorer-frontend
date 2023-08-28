@@ -4,10 +4,10 @@ import logo from './../../images/logo.svg';
 
 function Register() {
   return (
-    <div className="page-register">
-      <img className="logo logo_type_mobile" src={logo} alt='Logo'></img>
-      <div className="page-register__content">
-        <form className="form__register">
+    <section className="register">
+      <img className="logo logo_type_mobile" src={logo} alt='Logo'/>
+      <div className="register__content">
+        <form className="register__form">
           <h2 className="register__header">Добро пожаловать!</h2>
           <fieldset className="register__field">
             <div className="register__input-cover">
@@ -25,12 +25,12 @@ function Register() {
               <input className="register__input register__input_type_register" type="password" name="userpassword" id="userpassword" required placeholder="Пароль" minLength="2" maxLength="15" />
               <span className="register__input-error userepassword-error">Что-то пошло не так...</span>
             </div>
-            <button className=" button_type_sub button_type_register" type="submit">Зарегистрироваться</button>
+            <button className="button button_type_sub button_type_register" type="submit">Зарегистрироваться</button>
             <p className="register__text">Уже зарегистрированы? <Link to="/signin" className="register__link">Войти</Link></p>
           </fieldset>
         </form>
       </div>
-    </div>
+    </section>
   );
 }
 

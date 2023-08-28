@@ -33,7 +33,7 @@ function MoviesCardList(props) {
   }
 
   return (
-    <div className="gallery__list">
+    <section className="gallery__list">
       {/* <MoviesCard test={props.test} handleIconCardSaved={handleIconCardSaved} handleIconCardInGallery={handleIconCardInGallery} handleIconCardDelete={handleIconCardDelete} closeAllIcon={closeAllIcon} iconCardSaved={iconCardSaved} iconCardInGallery={iconCardInGallery} iconCardDelete={iconCardDelete}/>
       <MoviesCard test={props.test} handleIconCardSaved={handleIconCardSaved} handleIconCardInGallery={handleIconCardInGallery} handleIconCardDelete={handleIconCardDelete} closeAllIcon={closeAllIcon} iconCardSaved={iconCardSaved} iconCardInGallery={iconCardInGallery} iconCardDelete={iconCardDelete}/>
       <MoviesCard test={props.test} handleIconCardSaved={handleIconCardSaved} handleIconCardInGallery={handleIconCardInGallery} handleIconCardDelete={handleIconCardDelete} closeAllIcon={closeAllIcon} iconCardSaved={iconCardSaved} iconCardInGallery={iconCardInGallery} iconCardDelete={iconCardDelete}/>
@@ -138,7 +138,7 @@ function MoviesCardList(props) {
         </div>
         <button type="button" className="button button_type_save">Сохранить</button>
       </div> */}
-    </div>
+    </section>
   );
 }
 

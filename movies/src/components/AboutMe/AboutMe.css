@@ -16,7 +16,7 @@
   width: 1140px;
 }
 
-.about-student__conteiner {
+.about-student {
   display: flex;
   justify-content: space-between;
 }
@@ -125,7 +125,7 @@
     width: 292px;
   }
 
-  .about-student__conteiner {
+  .about-student {
     display: flex;
     flex-direction: column;
   }

@@ -52,9 +52,9 @@
 
 @media all and (max-width: 1279px) {
   .promo {
-      max-width: 728px;
-      padding-top: 350px;
-      min-height: 484px;
+    max-width: 728px;
+    padding-top: 350px;
+    min-height: 484px;
   }
 
   .promo__header {

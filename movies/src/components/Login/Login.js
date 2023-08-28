@@ -4,9 +4,9 @@ import logo from './../../images/logo.svg';
 
 function Login() {
   return (
-    <div>
-      <div className="page-login">
-        <img className="logo logo_type_mobile" src={logo} alt='Logo'></img>
+    <section>
+      <div className="login">
+        <img className="logo logo_type_mobile" src={logo} alt='Logo'/>
         <form className="login__form">
           <h2 className="login__header">Рады видеть!</h2>
           <fieldset className="login__field">
@@ -20,12 +20,12 @@ function Login() {
               <input className="login__input login__input_type_login" type="password" name="userpassword" id="userpassword" required placeholder="Пароль" minLength="2" maxLength="15" />
               <span className="login__input-error userepassword-error">Что-то пошло не так...</span>
             </div>
-            <button className=" button_type_sub button_type_login" type="submit">Войти</button>
+            <button className="button button_type_sub button_type_login" type="submit">Войти</button>
           </fieldset>
           <p className="login__text">Ещё не зарегистрированы? <Link to="/signup" className="login__link">Регистрация</Link></p>
         </form>
       </div>
-    </div>
+    </section>
   );
 }
 

@@ -3,16 +3,18 @@ import './../Movies/Movies.css';
 import MoviesCardList from './../MoviesCardList/MoviesCardList.js';
 import Header from './../Header/Header.js';
 import SearchForm from './../SearchForm/SearchForm.js';
+import Footer from './../Footer/Footer.js';
 
-function SavedMovies() {
+function SavedMovies(props) {
   return (
-    <div>
-      <Header onPageSavedMovies={true}/>
+    <section>
+      <Header loggedIn={props.loggedIn} onPageSavedMovies={true}/>
       <SearchForm />
-      <div className="gallery">
+      <section className="gallery">
         <MoviesCardList test={false}/>
-      </div>
-    </div>
+      </section>
+      <Footer />
+    </section>
   );
 }
 

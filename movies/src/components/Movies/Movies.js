@@ -3,17 +3,19 @@ import './Movies.css';
 import MoviesCardList from './../MoviesCardList/MoviesCardList.js';
 import Header from './../Header/Header.js';
 import SearchForm from './../SearchForm/SearchForm.js';
+import Footer from './../Footer/Footer.js';
 
-function Movies() {
+function Movies(props) {
   return (
-    <div>
-      <Header onPageMovies={true} />
+    <section>
+      <Header loggedIn={props.loggedIn} onPageMovies={true} />
       <SearchForm />
-      <div className="gallery">
+      <section className="gallery">
         <MoviesCardList test={true}  />
         <button className="button button_type_open-more">Ещё</button>
-      </div>
-    </div>
+      </section>
+      <Footer/>
+    </section>
   );
 }
 

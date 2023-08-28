@@ -5,19 +5,19 @@ import { Link } from 'react-router-dom';
 
 function Header(props) {
   return (
-    <div>
-      <header className="header">
-        <Link to="/"><img className="logo" src={logo} alt="Logo"></img></Link>
-        <ul className="header__login-list">
-          <li><Link to="/signup" className="header__button_registration">Регистрация</Link></li>
-          <li><Link to="/signin" className="header__button_login">Войти</Link></li>
+    <header>
+      <section className={(props.loggedIn ? 'header-hidden ' : 'header')}>
+        <Link to="/"><img className="logo" src={logo} alt="Logo"/></Link>
+        <ul className="header-login-list">
+          <li><Link to="/signup" className="button button_type_to-registration">Регистрация</Link></li>
+          <li><Link to="/signin" className="button button_type_to-login">Войти</Link></li>
         </ul>
-      </header>
-      <header className="header">
-        <Link to="/"><img className="logo" src={logo} alt="Logo"></img></Link>
+      </section>
+      <section className={(props.loggedIn ? 'header' : 'header-hidden')}>
+        <Link to="/"><img className="logo" src={logo} alt="Logo"/></Link>
         <NavTab onPageMain={props.onPageMain} onPageMovies={props.onPageMovies} onPageSavedMovies={props.onPageSavedMovies}/>
-      </header>
-    </div>
+      </section>
+    </header>
   );
 }
 

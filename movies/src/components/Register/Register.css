@@ -1,11 +1,11 @@
-.page-register {
+.register {
   max-width: 396px;
   margin: 0 auto;
   padding-top: 52px;
   min-height: 100vh;
 }
 
-.form__register {
+.register__form {
   max-width: 396px;
 }
 
@@ -108,7 +108,7 @@
 }
 
 @media all and (max-width: 1279px) {
-  .page-register {
+  .register {
     padding: 214px 0;
   }
 
@@ -119,7 +119,7 @@
 
 
 @media all and (max-width: 767px) {
-  .page-register {
+  .register {
     max-width: 260px;
     padding: 35px 0 30px;
   }

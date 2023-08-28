@@ -1,4 +1,4 @@
-.form__cover {
+.form-cover {
   width: 1140px;
   margin: 0 auto;
   padding: 92px 0 79px;
@@ -11,7 +11,7 @@
   border-bottom: 1px solid #424242;
 }
 
-.search__field {
+.search-field {
   width: 1086px;
   padding: 0;
   border: none;
@@ -93,12 +93,12 @@ input[type="checkbox"]:checked + .checkbox-indicator {
 }
 
 @media all and (max-width: 1279px) {
-  .form__cover {
+  .form-cover {
     width: 708px;
     padding: 95px 0 80px;
   }
   
-  .search__field {
+  .search-field {
     width: 654px;
     margin: 0 10px 7px 0;
   }
@@ -122,12 +122,12 @@ input[type="checkbox"]:checked + .checkbox-indicator {
 
 
 @media all and (max-width: 767px) {
-  .form__cover {
+  .form-cover {
     width: 292px;
     padding-bottom: 50px;
   }
   
-  .search__field {
+  .search-field {
     width: 238px;
     margin: 0 10px 3px 0;
   }

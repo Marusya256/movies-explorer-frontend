@@ -19,6 +19,14 @@
   margin: 28px 0;
 }
 
+.portfolio__list-link {
+  display: flex;
+  justify-content: space-between;
+  text-decoration: none;
+  color: #fff;
+  width: 1140px;
+}
+
 .portfolio__list-item {
   font-size: 30px;
   font-style: normal;
@@ -40,12 +48,13 @@
 }
 
 .portfolio__list-button {
-  width: 29px;
+  width: 18px;
   height: 60px;
-  margin-top: 20px;
+  margin-top: 17px;
+  margin-right: 6px;
 }
 
-.portfolio__list-button:hover {
+.portfolio__list-link:hover {
   opacity: 0.7;
 }
 
@@ -62,10 +71,6 @@
 
   .portfolio__list-title {
     margin: 20px 0;
-  }
-  
-  .portfolio__list-button {
-    width: 27px;
   }
 }
 
@@ -93,7 +98,9 @@
   }
   
   .portfolio__list-button {
-    width: 18px;
+    width: 10px;
     height: 28px;
+    margin-top: 18px;
+    margin-right: 5px;
   }
 }

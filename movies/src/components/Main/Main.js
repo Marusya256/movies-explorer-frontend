@@ -5,19 +5,23 @@ import Portfolio from './../Portfolio/Portfolio.js';
 import Techs from './../Techs/Techs.js';
 import AboutMe from './../AboutMe/AboutMe.js';
 import Header from './../Header/Header.js';
+import Footer from './../Footer/Footer.js';
 // import Preloader from './../Preloader/Preloader.js';
 
-function Main() {
+function Main(props) {
   return (
-    <main>
+    <section>
       {/* <Preloader /> */}
-      <Header onPageMain={true}/>
-      <Promo />
-      <AboutProject />
-      <Techs />
-      <AboutMe />
-      <Portfolio />
-    </main>
+      <Header  loggedIn={props.loggedIn} onPageMain={true}/>
+      <main>
+        <Promo />
+        <AboutProject />
+        <Techs />
+        <AboutMe />
+        <Portfolio />
+      </main>
+      <Footer />
+    </section>
   );
 }
 
