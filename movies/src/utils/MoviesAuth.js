@@ -1,4 +1,4 @@
-export const BASE_URL = 'http://api.movies.galamm.nomoredomains.sbs';
+export const BASE_URL = 'https://api.movies.galamm.nomoredomains.sbs';
 // export const BASE_URL = 'http://localhost:3001';
 
 class MoviesAuth {
