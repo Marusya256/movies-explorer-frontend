@@ -15,7 +15,7 @@ function Header(props) {
       </section>
       <section className={(props.loggedIn ? 'header' : 'header-hidden')}>
         <Link to="/"><img className="logo" src={logo} alt="Logo"/></Link>
-        <NavTab onPageMain={props.onPageMain} onPageMovies={props.onPageMovies} onPageSavedMovies={props.onPageSavedMovies}/>
+        <NavTab atPageMain={props.atPageMain} atMoviesPage={props.atMoviesPage} atPageSavedMovies={props.atPageSavedMovies}/>
       </section>
     </header>
   );

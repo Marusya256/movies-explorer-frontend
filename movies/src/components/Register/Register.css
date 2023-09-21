@@ -27,6 +27,10 @@
   position: relative;
 }
 
+.register__input {
+  color: #fff;
+}
+
 .register__input_type_register {
   width: 376px;
   background-color: #2F2F2F;
@@ -38,7 +42,7 @@
   padding: 15px 0 16px 20px;
   border: none;
   border-radius: 8px;
-  margin: 9px 0 12px;
+  margin: 9px 0 18px;
 }
 
 .register__input_type_register:focus {
@@ -54,9 +58,28 @@
   font-weight: 400;
   line-height: normal;
   position: absolute;
+  top: 93px;
+  left: 1px;
+  visibility: visible;
+}
+
+.register__input-validate {
+  color: #EE3465;
+  font-size: 10px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  position: absolute;
   top: 83px;
   left: 1px;
-  /* visibility: hidden; */
+  visibility: visible;
+}
+
+.input-error-hidden {
+  visibility: hidden;
+  position: absolute;
+  top: 83px;
+  left: 1px;
 }
 
 .register__label {
@@ -88,6 +111,27 @@
   opacity: 0.8;
 }
 
+.button-hidden {
+  background-color: #8B8B8B;
+  cursor: default;
+  width: 396px;
+  border: none;
+  border-radius: 3px;
+  color: rgb(234, 231, 231)B8B;
+  text-align: center;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  padding: 13px 126px 15px 124px;
+  margin: 80px auto 2px;
+  border-radius: 3px;
+}
+
+.button-hidden:hover {
+  opacity: 1;
+}
+
 .register__text {
   color: #8B8B8B;
   text-align: center;
@@ -113,7 +157,7 @@
   }
 
   .register__input-error {
-    top: 86px;
+    top: 96px;
   }
 }
 

@@ -12,7 +12,7 @@ function Main(props) {
   return (
     <section>
       {/* <Preloader /> */}
-      <Header  loggedIn={props.loggedIn} onPageMain={true}/>
+      <Header  loggedIn={props.loggedIn} atPageMain={true}/>
       <main>
         <Promo />
         <AboutProject />

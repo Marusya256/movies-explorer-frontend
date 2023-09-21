@@ -1,1 +1,12 @@
 
+.gallery-hidden {
+    visibility: hidden;
+    width: 0;
+    height: 100vh;
+}
+
+.button_type_hidden {
+    visibility: hidden;
+    width: 0;
+    height: 0;
+}

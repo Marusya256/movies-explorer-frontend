@@ -1,25 +1,58 @@
 import './Profile.css';
 import Header from './../Header/Header.js';
-import { Link } from 'react-router-dom';
+import ProfileForm from './../ProfileForm/ProfileForm';
+import React from 'react';
+import { CurrentUserContext } from './../../context/CurrentUserContext';
 
 function Profile(props) {
+
+  const currentUser = React.useContext(CurrentUserContext);
+
+  const [name, setName] = React.useState('');
+
+  const [profileError, setProfileError] = React.useState(false);
+
+  const [inputDisable, setInputDisable] = React.useState(true);
+  const [buttonDisable, setButtonDisable] = React.useState(false);
+  const [isEditForm, setIsEditForm] = React.useState(false);
+
+  // function handleChangeName(e) {
+  //   setName(e.target.value);
+  // }
+
+  // function handleChangeDescription(e) {
+  //   setDescription(e.target.value);
+  // }
+
+  React.useEffect(() => {
+    setName(currentUser.name);
+  }, [currentUser]);
+
+  // React.useEffect(() => {
+  //   setIsEditForm(isEditForm);
+  //   setButtonDisable(buttonDisable);
+  //   setInputDisable(inputDisable);
+  // }, []);
+
+  function handleActiveFormEdit() {
+    setIsEditForm(true);
+    setButtonDisable(true);
+    setInputDisable(false);
+  }
+
+  function handleUpdateUserInfo() {
+    setIsEditForm(false);
+    setInputDisable(true);
+  }
+
   return (
     <section className="profile">
       <Header loggedIn={props.loggedIn}/>
       <div className="profile-content">
-        <h2 className="profile-header">Привет, <span>Виталий!</span></h2>
-        <div className="profile-info">
-          <div className="profile-text-cover profile-text-cover_type_border">
-            <p className="profile-text">Имя</p>
-            <p className="profile-text">Виталий</p>
-          </div>
-          <div className="profile-text-cover">
-            <p className="profile-text">E-mail</p>
-            <p className="profile-text">pochta@yandex.ru</p>
-          </div>
-        </div>
-        <Link to="/profile/edit" className="button button_type_profile-edit">Редактировать</Link>
-        <Link to="/signin" className="button button_type_profile-logout">Выйти из аккаунта</Link>
+        <h2 className="profile-header">Привет, <span>{name || ''}</span>!</h2>
+        <ProfileForm onUpdateUser={props.onUpdateUser} isEditForm={isEditForm} inputDisable={inputDisable} />
+        <button type='button' className={isEditForm ? 'button_type_hidden' : 'button button_type_profile-edit'} disabled={buttonDisable} onClick={handleActiveFormEdit} >Редактировать</button>
+        <button type='button' className={isEditForm ? 'button_type_hidden' : 'button button_type_profile-logout'} disabled={buttonDisable} onClick={props.signOut} >Выйти из аккаунта</button>
       </div>
     </section>
   );
