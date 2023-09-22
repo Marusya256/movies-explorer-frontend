@@ -4,6 +4,7 @@ import { CurrentUserContext } from './../../context/CurrentUserContext';
 
 function MoviesCard(props) {
 
+  // eslint-disable-next-line no-unused-vars
   const [currentUser, setСurrentUser] = React.useState({});
 
   function convertDuration(n) {
@@ -20,13 +21,13 @@ function MoviesCard(props) {
   const [isLiked, setIsLiked] = React.useState(false);
 
   React.useEffect(() => {
-    const saevedMovie = props.SavedMoviesList.find(i => i.movieId === props.card.id);
+    const saevedMovie = props.savedMoviesList.find(i => i.movieId === props.card.id);
     
     if (saevedMovie) {
       props.card._id = saevedMovie._id;
       setIsLiked(true);
     }
-  }, [props.SavedMoviesList, props.card]);
+  }, [props.savedMoviesList, props.card]);
 
   return (
     <CurrentUserContext.Provider value={currentUser}>

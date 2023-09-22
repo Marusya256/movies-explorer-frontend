@@ -101,7 +101,7 @@
   text-decoration: none;
   color: #fff;
   border-radius: 3px;
-  margin-top: 223px;
+  margin-top: 0;
 }
 
 .button_type_profile-edit:hover {
@@ -124,6 +124,17 @@
   background-color: #F8F8F8;;
   color: #C2C2C2;
   cursor: default;
+  text-align: center;
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  height: 45px;
+  margin-bottom: 16px;
+  padding: 13px 167px;
+  text-decoration: none;
+  border-radius: 3px;
+  margin-top: 0;
 }
 
 .button_type_blocked:hover {
@@ -147,23 +158,6 @@
   position: absolute;
 }
 
-.tes_button {
-  background-color: #32941c;
-  text-align: center;
-  font-size: 13px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: normal;
-  cursor: pointer;
-  height: 45px;
-  margin-bottom: 16px;
-  padding: 13px 167px;
-  text-decoration: none;
-  color: #fff;
-  border-radius: 3px;
-  margin-top: 223px;
-}
-
 @media all and (max-width: 1279px) {
   .profile {
     width: 768px;
@@ -178,7 +172,7 @@
   }
   
   .profile-info {
-    margin-bottom: 192px;
+    margin-bottom: 174px;
   }
 }
 

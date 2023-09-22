@@ -9,9 +9,9 @@ function SavedMovies(props) {
   return (
     <section>
       <Header loggedIn={props.loggedIn} atPageSavedMovies={true}/>
-      <SearchForm getMovies={props.getMovies} getSavedMovies={props.getSavedMovies} location={props.location} updateValueCheckbox={props.updateValueCheckbox} updateValueKeyword={props.updateValueKeyword} onCheckbox={props.onCheckbox} moviesKeywordInput={props.moviesKeywordInput}/>
+      <SearchForm getMovies={props.getMovies} savedMoviesList={props.savedMoviesList} handleFoundMovies={props.handleFoundMovies} location={props.location} updateValueCheckbox={props.updateValueCheckbox} updateValueKeyword={props.updateValueKeyword} onCheckbox={props.onCheckbox} moviesKeywordInput={props.moviesKeywordInput}/>
       <section className="gallery">
-        <MoviesCardList atPageSavedMovies={true} savedMoviesListSearch={props.savedMoviesListSearch} SavedMoviesList={props.SavedMoviesList} handleDeleteMovie={props.handleDeleteMovie} imgUrl={false} isMoviesSaved={true} showButtonDelete={true} isNotFound={props.isNotFound} isServerError={props.isServerError} isLoading={props.isLoading} moviesList={props.moviesList}/>
+        <MoviesCardList atPageSavedMovies={true} savedMoviesList={props.savedMoviesList} handleDeleteMovie={props.handleDeleteMovie} imgUrl={false} isMoviesSaved={true} isNotFound={props.isNotFound} isServerError={props.isServerError} isLoading={props.isLoading} moviesList={props.moviesList}/>
       </section>
       <Footer />
     </section>

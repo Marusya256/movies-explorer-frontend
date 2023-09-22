@@ -1,13 +1,9 @@
 import './Register.css';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import logo from './../../images/logo.svg';
 import React from 'react';
-import moviesAuth from './../../utils/MoviesAuth';
 
 function Register(props) {
-
-  // const [errorInput, setErrorInput] = React.useState(false);
-  // const [textErrorInput, setTextErrorInput] = React.useState('');
 
   const [buttonSubmit, setButtonSubmit] = React.useState(false);
 
@@ -15,15 +11,10 @@ function Register(props) {
   const [validateInputEmail, setValidateInputEmail] = React.useState(true);
   const [validateInputPassword, setValidateInputPassword] = React.useState(true);
 
-
-  const {onRegisteredFailed, onRegisteredSuccess} = props;
-
   const [formValue, setFormValue] = React.useState({
     useremail: '',
     userpassword: ''
   })
-
-  const navigate = useNavigate();
 
   function handleActiveButtonSubmit() {
     if (!validateInputName && !validateInputEmail && !validateInputPassword) {
@@ -44,20 +35,6 @@ function Register(props) {
     const { username, useremail, userpassword } = formValue;
 
     props.handleRegisterUser(username, useremail, userpassword);
-
-    // moviesAuth.register(username, useremail, userpassword)
-    // .then(() => {
-    //   onRegisteredSuccess();
-    // })
-    // .then(() => navigate('/signin', {replace: true}))
-    // .catch(err => {
-    //   setErrorInput(true);
-    //   if (err === 'Ошибка 409') {
-    //     setTextErrorInput('Пользователь с такой почтой уже существует');
-    //   } else {
-    //     setTextErrorInput('Что-то пошло не так... ' + err);
-    //   }
-    // });
   }
 
   const handleChangeInputName = (e) => {
@@ -104,31 +81,6 @@ function Register(props) {
       setValidateInputPassword(true);
     }
   }
-
-  // if (validateInputName && validateInputEmail && validateInputPassword) {
-  //   setButtonSubmit(true);
-  // }
-
-  // const handleSubmit = (e) => {
-  //   e.preventDefault();
-
-  //   if (test && !validateInputName && !validateInputEmail && !validateInputPassword) {
-
-  //     const { username, useremail, userpassword } = formValue;
-  
-  //     moviesAuth.register(username, useremail, userpassword)
-  //     .then((res) => {
-  //       onRegisteredSuccess();
-  //       console.log(res);
-  //     })
-  //     .then(() => navigate('/signin', {replace: true}))
-  //     .catch(err => {
-  //       onRegisteredFailed();
-  //       setErrorInput(true);
-  //       console.log(err);
-  //     });
-  //   }
-  // }
 
   return (
     <section className="register">

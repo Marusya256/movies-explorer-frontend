@@ -1,6 +1,6 @@
 import search from './../../images/search-icon.svg';
 import './SearchForm.css';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 
 function SearchForm(props) {
 
@@ -22,15 +22,13 @@ function SearchForm(props) {
         props.getMovies();
         setErrorInput(false);
       } else {
-        props.getSavedMovies();
+        props.handleFoundMovies(props.savedMoviesList);
         setErrorInput(false);
       }
     } else {
       setErrorInput(true);
     }
   }
-
-  //ин
 
 
   return (

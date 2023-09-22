@@ -18,7 +18,7 @@ function Movies(props) {
         <Preloader />
       </section>
       <section className={(props.isLoading ? 'gallery-hidden' : 'gallery')}>
-        <MoviesCardList isNotFound={props.isNotFound} imgUrl={true} SavedMoviesList={props.SavedMoviesList} isServerError={props.isServerError} atMoviesPage={true} isMoviesSaved={false} showButtonSave={true} handleSaveMovie={props.handleSaveMovie} isLoading={props.isLoading} moviesList={props.moviesList} />
+        <MoviesCardList isNotFound={props.isNotFound} imgUrl={true} savedMoviesList={props.savedMoviesList} isServerError={props.isServerError} atMoviesPage={true} isMoviesSaved={false} handleSaveMovie={props.handleSaveMovie} isLoading={props.isLoading} moviesList={props.moviesList} />
       </section>
       <Footer/>
     </section>

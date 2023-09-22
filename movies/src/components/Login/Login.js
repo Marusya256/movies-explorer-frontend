@@ -1,8 +1,7 @@
 import './Login.css';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import logo from './../../images/logo.svg';
 import React from 'react';
-import moviesAuth from './../../utils/MoviesAuth'; 
 
 function Login(props) {
 
@@ -15,8 +14,6 @@ function Login(props) {
     useremail: '',
     userpassword: ''
   })
-
-  const navigate = useNavigate();
 
   function handleActiveButtonSubmit() {
     if (!validateInputEmail && !validateInputPassword) {
