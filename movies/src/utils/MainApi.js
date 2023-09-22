@@ -1,5 +1,5 @@
-export const BASE_URL = 'http://localhost:3001';
-// export const BASE_URL = 'https://api.movies.galamm.nomoredomains.sbs';
+// export const BASE_URL = 'http://localhost:3001';
+export const BASE_URL = 'https://api.movies.galamm.nomoredomains.sbs';
 export const BASE_URL_MOVIES_API = 'https://api.nomoreparties.co/beatfilm-movies';
 
 class MainApi {

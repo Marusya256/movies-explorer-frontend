@@ -8,7 +8,7 @@ import SavedMovies from './../SavedMovies/SavedMovies.js';
 import Profile from './../Profile/Profile.js';
 import PageNotFound from './../PageNotFound/PageNotFound.js';
 import InfoTooltip from './../InfoTooltip/InfoTooltip.js';
-import { Routes, Route, Navigate, useNavigate } from 'react-router-dom';
+import { Routes, Route, useNavigate } from 'react-router-dom';
 import moviesApi from './../../utils/MoviesApi';
 import ProtectedRoute from "./../ProtectedRoute/ProtectedRoute";
 import { useLocation } from 'react-router-dom';
