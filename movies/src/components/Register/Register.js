@@ -96,7 +96,7 @@ function Register(props) {
             </div>
             <div className="register__input-cover">
               <label className="register__label" htmlFor="useremail">E-mail</label>
-              <input className="register__input register__input_type_register" onChange={handleChangeInputEmail} type="email" name="useremail" id="useremail" required placeholder="mail@mail.ru" minLength="2" />
+              <input className="register__input register__input_type_register" onChange={handleChangeInputEmail} type="email" name="useremail" id="useremail" required placeholder="mail@mail.ru" minLength="2" pattern="^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+){1,}\.([a-zA-Z]{2,})$"/>
               <span className={validateInputEmail ? 'register__input-validate' : 'input-error-hidden'}>Неверное значение для данного поля</span>
             </div>
             <div className="register__input-cover">

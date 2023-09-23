@@ -40,7 +40,7 @@ function MoviesCardList(props) {
         <p className={props.isServerError && !props.isLoading ? 'text-error': 'text-error-hidden'}>Во время запроса произошла ошибка. Возможно, проблема с соединением или сервер недоступен. Подождите немного и попробуйте ещё раз</p>
         <ul className="gallery__list">
           {props.moviesList.slice(0, showMoviesCard).map((card, i) => {
-            return <MoviesCard card={card} savedMoviesList={props.savedMoviesList} isMoviesSaved={props.isMoviesSaved} imgUrl={props.imgUrl} atMoviesPage={props.atMoviesPage} handleSaveMovie={props.handleSaveMovie} />
+            return <MoviesCard card={card} handleDislike={props.handleDislike} savedMoviesList={props.savedMoviesList} findoutMoviesLike={props.findoutMoviesLike} handleDeleteMovie={props.handleDeleteMovie} isMoviesSaved={props.isMoviesSaved} imgUrl={props.imgUrl} atMoviesPage={props.atMoviesPage} handleSaveMovie={props.handleSaveMovie} />
           })}
         </ul>
         <button className={props.moviesList.length < 8 || showMoviesCard >= props.moviesList.length ? 'button button_type_hidden' : 'button button_type_open-more'} type="button" onClick={handleMoreButtonClick}>Ещё</button>  

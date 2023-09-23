@@ -24,13 +24,12 @@ function App() {
   const [currentUser, setСurrentUser] = React.useState({});
 
   const [cards, setCards] = React.useState([]); //массив всех фильмов с сервера
-  const [moviesListSearch, setMoviesListSearch] = React.useState([]); //массив найденных фильмов
-  // const [savedMoviesListSearch, setSavedMoviesListSearch] = React.useState([]); //массив найденных фильмов saved
+  const [moviesListSearch, setMoviesListSearch] = React.useState(localStorage.getItem('searchMovies') ? JSON.parse(localStorage.getItem('searchMovies')) : []); //массив найденных фильмов
   const [savedMoviesList, setSavedMoviesList] = React.useState([]); //массив сохраненных фильмов
 
   const [moviesKeywordInput, setMoviesKeywordInput] = React.useState(''); //ключевое слово для поиска фильмов
   const [savedMoviesKeywordInput, setSavedMoviesKeywordInput] = React.useState(''); //ключевое слово для поиска по сохраненным фильмам
-  const [valueCheckbox, setValueCheckbox] = React.useState(false); // значение чекбокса короткометражных фильмов
+  const [valueCheckbox, setValueCheckbox] = React.useState(localStorage.getItem('selectedCheckbox') ? JSON.parse(localStorage.getItem('selectedCheckbox')) : false); // значение чекбокса короткометражных фильмов
 
   const [isInfoTooltipPopupOpen, setIsInfoTooltipPopupOpen] = React.useState(false);
 
@@ -38,7 +37,7 @@ function App() {
   const [isServerError, setIsServerError] = React.useState(false); //Произошла ошибка при поиске фильмов
 
   const [errorInput, setErrorInput] = React.useState(false); // ошибка при регистрации или авторизации
-  const [textErrorInput, setTextErrorInput] = React.useState(''); // текст ошибки 
+  const [textErrorInput, setTextErrorInput] = React.useState(''); // текст ошибки
 
   const location = useLocation();
   const navigate = useNavigate();
@@ -114,7 +113,6 @@ function App() {
       localStorage.setItem('moviesKeyword', value);
     } else {
       setSavedMoviesKeywordInput(value);
-      localStorage.setItem('savedMoviesKeyword', value);
     }
   };
 
@@ -212,10 +210,11 @@ function App() {
     }
   }, [moviesListSearch, savedMoviesList, location.pathname, isServerError]);
 
-  // сохранение фильма на страницу "Сохраненные фильмы"
+  // Сохранение фильма на страницу "Сохраненные фильмы"
 
   const handleSaveMovie = (card) => {
-    mainApi.addMovies(card)
+    if (!(savedMoviesList.some(i => i.movieId === card.id))) {
+      mainApi.addMovies(card)
       .then((card) => {
         setSavedMoviesList([card, ...savedMoviesList]);
         console.log(card);
@@ -223,6 +222,9 @@ function App() {
       .catch((err) => {
         console.log(err);
       });
+    } else {
+      alert('Фильм уже сохранен');
+    }
   };
 
   useEffect(() => {
@@ -233,20 +235,39 @@ function App() {
     localStorage.setItem('saveMovies', JSON.stringify(savedMoviesList));
   }, [savedMoviesList]);
 
+  useEffect(() => {
+    localStorage.setItem('searchMovies', JSON.stringify(moviesListSearch));
+  }, [moviesListSearch]);
+
+  // Узнаём сохранен ли фильм
+
+  const findoutMoviesLike = (card) => {
+    return savedMoviesList.some(i => i.movieId === card.id);
+  }
+
   // Удаление фильма из списка "Сохраненные фильмы"
 
   function handleDeleteMovie(card) {
     const jwt = localStorage.getItem('jwt');
-    mainApi
-      .deleteCard(card._id, jwt)
+    mainApi.deleteCard(card._id, jwt)
       .then((deleteMovies) => {
-        setSavedMoviesList(savedMoviesList.filter((c) => c._id !== deleteMovies._id));
-        handleFoundMovies(savedMoviesList);
-        console.log(deleteMovies);
+        setSavedMoviesList((savedMoviesList) => savedMoviesList.filter((i) => i._id !== deleteMovies._id));
+        console.log('savedMoviesList: ', savedMoviesList);
       })
       .catch((err) => {
         console.log('Error: ', err);
       });
+  }
+
+  //
+
+  const handleDislike = (card) => {
+    const id = savedMoviesList.find((i) => i.movieId === card.id)._id;
+      mainApi.deleteCard(id)
+        .then(() => {
+          setSavedMoviesList((savedMoviesList) => savedMoviesList.filter((i) => i._id !== id));
+        })
+        .catch((err) => console.log(err));
   }
 
   // Авторизация пользователя
@@ -309,6 +330,7 @@ function App() {
     setMoviesKeywordInput('');
     setSavedMoviesKeywordInput('');
     setValueCheckbox(false);
+    setMoviesListSearch([]);
     navigate('/', {replace: true});
   }
 
@@ -348,6 +370,9 @@ function App() {
                 valueCheckbox={valueCheckbox}
                 element={Movies}
                 location={location}
+                findoutMoviesLike={findoutMoviesLike}
+                handleDeleteMovie={handleDeleteMovie}
+                handleDislike={handleDislike}
               />
             }
           />
@@ -358,9 +383,10 @@ function App() {
                 handleDeleteMovie={handleDeleteMovie}
                 isServerError={isServerError}
                 updateValueCheckbox={updateValueCheckbox}
+                valueCheckbox={valueCheckbox}
                 updateValueKeyword={updateValueKeyword}
                 isLoading={isLoading}
-                moviesKeywordInput={savedMoviesKeywordInput}
+                savedMoviesKeywordInput={savedMoviesKeywordInput}
                 getMovies={getMovies}
                 moviesList={savedMoviesList}
                 moviesListSearch={moviesListSearch}

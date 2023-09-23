@@ -11,7 +11,11 @@ function SearchForm(props) {
   }
 
   function changeValueCheckbox (e) {
-    props.updateValueCheckbox(e.target.value);
+    if (props.location.pathname === '/movies') {
+      props.updateValueCheckbox(e.target.value);
+    } else {
+      props.updateValueCheckboxSavedMovies(e.target.value);
+    }
   }
 
   function getMovies(e) {
@@ -22,7 +26,7 @@ function SearchForm(props) {
         props.getMovies();
         setErrorInput(false);
       } else {
-        props.handleFoundMovies(props.savedMoviesList);
+        props.handlesubmitSearch();
         setErrorInput(false);
       }
     } else {

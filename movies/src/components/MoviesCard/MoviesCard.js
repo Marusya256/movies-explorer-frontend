@@ -18,16 +18,13 @@ function MoviesCard(props) {
     }
   }
 
-  const [isLiked, setIsLiked] = React.useState(false);
-
-  React.useEffect(() => {
-    const saevedMovie = props.savedMoviesList.find(i => i.movieId === props.card.id);
-    
-    if (saevedMovie) {
-      props.card._id = saevedMovie._id;
-      setIsLiked(true);
+  const handleLikeClick = (card) => {
+    if (props.findoutMoviesLike(card)) {
+      props.handleDislike(card);
+    } else {
+      props.handleSaveMovie(card)
     }
-  }, [props.savedMoviesList, props.card]);
+  }
 
   return (
     <CurrentUserContext.Provider value={currentUser}>
@@ -48,11 +45,10 @@ function MoviesCard(props) {
             />
             :
             <button
-              className={`button ${isLiked ? ' button_type_ingallery' : ' button_type_save'}`}
+              className={`button ${props.findoutMoviesLike(props.card) ? ' button_type_ingallery' : ' button_type_save'}`}
               type="button"
-              onClick={() => props.handleSaveMovie(props.card)}
-              disabled={isLiked ? true : false}
-            >{isLiked ? '' : 'Сохранить'}</button>
+              onClick={() => handleLikeClick(props.card)}
+            >{props.findoutMoviesLike(props.card) ? '' : 'Сохранить'}</button>
           }
       </li>
     </CurrentUserContext.Provider>

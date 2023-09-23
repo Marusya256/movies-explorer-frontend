@@ -76,12 +76,12 @@ function Login(props) {
           <fieldset className="login__field">
             <div className="login__input-cover">
               <label className="login__label" htmlFor="useremail">E-mail</label>
-              <input className="login__input login__input_type_login" type="email" onChange={handleChangeInputEmail} name="useremail" id="useremail" required placeholder="mail@mail.ru" minLength="2" maxLength="40" />
+              <input className="login__input login__input_type_login" type="email" onChange={handleChangeInputEmail} name="useremail" id="useremail" required placeholder="mail@mail.ru" minLength="2" maxLength="40" pattern="^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+){1,}\.([a-zA-Z]{2,})$"/>
               <span className={validateInputEmail ? 'login__input-error' : 'input-error-hidden'}>Неверное значение для данного поля</span>
             </div>
             <div className="login__input-cover">
               <label className="login__label" htmlFor="userpassword">Пароль</label>
-              <input className="login__input login__input_type_login" type="password" onChange={handleChangeInputPassword} name="userpassword" id="userpassword" required placeholder="Пароль" minLength="8" />
+              <input className="login__input login__input_type_login" type="password" onChange={handleChangeInputPassword} name="userpassword" id="userpassword" required placeholder="Пароль" minLength="8"/>
               <span className={validateInputPassword ? 'login__input-error' : 'input-error-hidden'}>Неверное значение для данного поля</span>
               <span className={props.errorInput ? 'register__input-error' : 'input-error-hidden'}>{ props.textErrorInput }</span>
             </div>
