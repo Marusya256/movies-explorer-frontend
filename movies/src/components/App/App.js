@@ -23,7 +23,7 @@ function App() {
 
   const [currentUser, setСurrentUser] = React.useState({});
 
-  const [cards, setCards] = React.useState([]); //массив всех фильмов с сервера
+  const [cards, setCards] = React.useState(localStorage.getItem('movies') ? JSON.parse(localStorage.getItem('movies')) : []); //массив всех фильмов с сервера
   const [moviesListSearch, setMoviesListSearch] = React.useState(localStorage.getItem('searchMovies') ? JSON.parse(localStorage.getItem('searchMovies')) : []); //массив найденных фильмов
   const [savedMoviesList, setSavedMoviesList] = React.useState([]); //массив сохраненных фильмов
 
