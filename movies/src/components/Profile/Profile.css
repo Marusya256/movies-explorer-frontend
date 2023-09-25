@@ -156,6 +156,31 @@
 .profile-info__error-hidden {
   visibility: hidden;
   position: absolute;
+  bottom: -163px;
+  left: 96px;
+}
+
+.profile__input-validate {
+  color: #EE3465;
+  font-size: 10px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  position: absolute;
+  top: 83px;
+  left: 0;
+  visibility: visible;
+}
+
+.profile__input-email {
+  top: 96px;
+}
+
+.input-error-hidden {
+  visibility: hidden;
+  position: absolute;
+  top: 83px;
+  left: 1px;
 }
 
 @media all and (max-width: 1279px) {

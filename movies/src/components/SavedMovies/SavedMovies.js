@@ -10,8 +10,9 @@ function SavedMovies(props) {
 
   const [foundSavedMovies, setFoundSavedMovies] = React.useState(localStorage.getItem('saveMovies') ? JSON.parse(localStorage.getItem('saveMovies')) : []);
   
+  const [isNotFound, setIsNotFound] = React.useState(false); // Фильмы по запросу не найдены
+
   const deleteMovies = (card) => {
-    setFoundSavedMovies((foundSavedMovies) => foundSavedMovies.filter((i) => i._id !== card._id));
     props.handleDeleteMovie(card);
   }
 
@@ -35,12 +36,25 @@ function SavedMovies(props) {
     localStorage.setItem('selectedCheckbox', !valueCheckbox);
   };
 
+  React.useEffect(() => {
+    if (foundSavedMovies.length === 0) {
+      setIsNotFound(true);
+    } else {
+      setIsNotFound(false);
+    }
+  }, [foundSavedMovies]);
+  
+  React.useEffect(() => {
+    setFoundSavedMovies(c => foundSavedMovies.filter((i) => props.savedMoviesList.find(e => e._id === i._id)));
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [props.savedMoviesList]);
+
   return (
     <section>
       <Header loggedIn={props.loggedIn} atPageSavedMovies={true}/>
       <SearchForm getMovies={props.getMovies} handlesubmitSearch={handlesubmitSearch} updateValueCheckboxSavedMovies={updateValueCheckboxSavedMovies} savedMoviesList={props.savedMoviesList} handleFoundMovies={props.handleFoundMovies} location={props.location} updateValueCheckbox={props.updateValueCheckbox} updateValueKeyword={props.updateValueKeyword} onCheckbox={props.onCheckbox} moviesKeywordInput={props.moviesKeywordInput}/>
       <section className="gallery">
-        <MoviesCardList atPageSavedMovies={true} savedMoviesList={props.savedMoviesList} handleDeleteMovie={deleteMovies} imgUrl={false} isMoviesSaved={true} isNotFound={props.isNotFound} isServerError={props.isServerError} isLoading={props.isLoading} moviesList={foundSavedMovies}/>
+        <MoviesCardList atPageSavedMovies={true} savedMoviesList={props.savedMoviesList} handleDeleteMovie={deleteMovies} imgUrl={false} isMoviesSaved={true} isNotFound={isNotFound} isServerError={props.isServerError} isLoading={props.isLoading} moviesList={foundSavedMovies}/>
       </section>
       <Footer />
     </section>

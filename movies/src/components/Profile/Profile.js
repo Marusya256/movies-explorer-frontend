@@ -17,6 +17,14 @@ function Profile(props) {
   const [buttonDisable, setButtonDisable] = React.useState(false);
   const [isEditForm, setIsEditForm] = React.useState(false);
 
+  const [validateInputName, setValidateInputName] = React.useState(false);
+  const [validateInputEmail, setValidateInputEmail] = React.useState(false);
+
+  const [formValue, setFormValue] = React.useState({
+    username: '',
+    useremail: ''
+  })
+
   React.useEffect(() => {
     setName(currentUser.name);
     setEmail(currentUser.email);
@@ -35,11 +43,49 @@ function Profile(props) {
   }
 
   function handleChangeName(e) {
+
     setName(e.target.value);
+
+    const {name, value} = e.target;
+
+    setFormValue({
+      ...formValue,
+      [name]: value
+    });
+
+    if(e.target.validity.valid) {
+      setValidateInputName(false);
+      if(e.target.value === '') {
+        setValidateInputName(true);
+      } else {
+        setValidateInputName(false);
+      }
+    } else {
+      setValidateInputName(true);
+    }
   }
 
-  function handleChangeEmail(e) {
+  const handleChangeInputEmail = (e) => {
+
     setEmail(e.target.value);
+
+    const {name, value} = e.target;
+
+    setFormValue({
+      ...formValue,
+      [name]: value
+    });
+
+    if(e.target.validity.valid) {
+      setValidateInputEmail(false);
+      if(e.target.value === '') {
+        setValidateInputEmail(true);
+      } else {
+        setValidateInputEmail(false);
+      }
+    } else {
+      setValidateInputEmail(true);
+    }
   }
 
   function handleSubmit(e) {
@@ -65,7 +111,9 @@ function Profile(props) {
             </div>
             <div className="profile-info__label-cover">
               <label className="profile-text">E-mail</label>
-              <input className="profile-info__input" type="email" name="newemail" id="newemail" onChange={handleChangeEmail} disabled={inputDisable} value={email || ''} minLength="2" maxLength="30"/>
+              <input className="profile-info__input" type="email" name="newemail" id="newemail" onChange={handleChangeInputEmail} disabled={inputDisable} value={email || ''} minLength="2" maxLength="30" pattern="^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+){1,}\.([a-zA-Z]{2,})$"/>
+              <span className={validateInputEmail ? 'profile__input-validate profile__input-email' : 'input-error-hidden'}>Неверное значение для поля Email</span>
+              <span className={validateInputName ? 'profile__input-validate' : 'input-error-hidden'}>Неверное значение для поля Name</span>
             </div>
           </fieldset>
           <span className={profileError ? 'profile-info__error' : 'profile-info__error-hidden' }>При обновлении профиля произошла ошибка.</span>
@@ -79,10 +127,10 @@ function Profile(props) {
             >Редактировать</button>
             :
             <button
-              className={`button ${(currentUser.name === name && currentUser.email === email) ? ' button_type_blocked' : ' button_type_save-profile'}`}
+              className={`button ${(validateInputName || validateInputEmail || (currentUser.name === name && currentUser.email === email)) ? ' button_type_blocked' : ' button_type_save-profile'}`}
               type="button"
               onClick={handleSubmit}
-              disabled={
+              disabled={validateInputName || validateInputEmail ||
                 (currentUser.name === name &&
                 currentUser.email === email)
               }

@@ -217,7 +217,6 @@ function App() {
       mainApi.addMovies(card)
       .then((card) => {
         setSavedMoviesList([card, ...savedMoviesList]);
-        console.log(card);
       })
       .catch((err) => {
         console.log(err);
@@ -250,22 +249,24 @@ function App() {
   function handleDeleteMovie(card) {
     const jwt = localStorage.getItem('jwt');
     mainApi.deleteCard(card._id, jwt)
-      .then((deleteMovies) => {
-        setSavedMoviesList((savedMoviesList) => savedMoviesList.filter((i) => i._id !== deleteMovies._id));
-        console.log('savedMoviesList: ', savedMoviesList);
+      .then((deletedMovie) => {
+        const newMovies = savedMoviesList.filter((i) => i._id !== deletedMovie._id);
+        setSavedMoviesList(newMovies);
+        console.log('savedMoviesList: ', newMovies);
       })
       .catch((err) => {
         console.log('Error: ', err);
       });
   }
 
-  //
+  // Dislike фильма на странице "Фильмы"
 
   const handleDislike = (card) => {
     const id = savedMoviesList.find((i) => i.movieId === card.id)._id;
       mainApi.deleteCard(id)
         .then(() => {
           setSavedMoviesList((savedMoviesList) => savedMoviesList.filter((i) => i._id !== id));
+          console.log('dislike: ', savedMoviesList);
         })
         .catch((err) => console.log(err));
   }
@@ -379,9 +380,7 @@ function App() {
           <Route  path="/saved-movies" 
             element={
               <ProtectedRoute
-                isNotFound={isNotFound}
                 handleDeleteMovie={handleDeleteMovie}
-                isServerError={isServerError}
                 updateValueCheckbox={updateValueCheckbox}
                 valueCheckbox={valueCheckbox}
                 updateValueKeyword={updateValueKeyword}
