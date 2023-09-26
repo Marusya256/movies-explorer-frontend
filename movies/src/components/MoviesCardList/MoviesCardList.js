@@ -1,143 +1,58 @@
-import film from './../../images/1.png';
-import film2 from './../../images/2.png';
-import film3 from './../../images/3.png';
-import film4 from './../../images/4.png';
-import film5 from './../../images/5.png';
-import film6 from './../../images/6.png';
+import './../Movies/Movies.css';
 import './MoviesCardList.css';
 import './../MoviesCard/MoviesCard.css';
-// import MoviesCard from './../MoviesCard/MoviesCard';
+import MoviesCard from './../MoviesCard/MoviesCard';
 import React from 'react';
+import { useState, useEffect } from 'react';
+import { useWindowSize } from "@uidotdev/usehooks";
 
 function MoviesCardList(props) {
-  const [iconCardSaved, setIconCardSaved] = React.useState(false);
-  // const [iconCardInGallery, setIconCardInGallery] = React.useState(false);
-  const [iconCardDelete, setIconCardDelete] = React.useState(false);
 
-  function handleIconCardSaved() {
-    setIconCardSaved(true);
-  }
+  const windowWidth = useWindowSize();
 
-  // function handleIconCardInGallery() {
-  //   setIconCardInGallery(true);
-  // }
+  const [showMoviesCard, setShowMoviesCard] = useState({});
+  const [moreCards, setMoreCards] = useState({});
 
-  function handleIconCardDelete() {
-    setIconCardDelete(true);
-  }
+  useEffect(() => {
+    if (windowWidth.width >= 1279) {
+      setShowMoviesCard(12);
+      setMoreCards(3);
+    }
+    if (windowWidth.width < 1279 && windowWidth.width >= 767) {
+      setShowMoviesCard(8);
+      setMoreCards(2);
+    }
+    if (windowWidth.width <= 767 && windowWidth.width >= 292) {
+      setShowMoviesCard(5);
+      setMoreCards(2);
+    }
+  }, [windowWidth]);
 
-  function closeAllIcon() {
-    setIconCardSaved(false);
-    // setIconCardInGallery(false);
-    setIconCardDelete(false);
+  function handleMoreButtonClick() {
+    setShowMoviesCard(showMoviesCard + moreCards);
   }
 
   return (
-    <section className="gallery__list">
-      {/* <MoviesCard test={props.test} handleIconCardSaved={handleIconCardSaved} handleIconCardInGallery={handleIconCardInGallery} handleIconCardDelete={handleIconCardDelete} closeAllIcon={closeAllIcon} iconCardSaved={iconCardSaved} iconCardInGallery={iconCardInGallery} iconCardDelete={iconCardDelete}/>
-      <MoviesCard test={props.test} handleIconCardSaved={handleIconCardSaved} handleIconCardInGallery={handleIconCardInGallery} handleIconCardDelete={handleIconCardDelete} closeAllIcon={closeAllIcon} iconCardSaved={iconCardSaved} iconCardInGallery={iconCardInGallery} iconCardDelete={iconCardDelete}/>
-      <MoviesCard test={props.test} handleIconCardSaved={handleIconCardSaved} handleIconCardInGallery={handleIconCardInGallery} handleIconCardDelete={handleIconCardDelete} closeAllIcon={closeAllIcon} iconCardSaved={iconCardSaved} iconCardInGallery={iconCardInGallery} iconCardDelete={iconCardDelete}/>
-      <MoviesCard test={props.test} handleIconCardSaved={handleIconCardSaved} handleIconCardInGallery={handleIconCardInGallery} handleIconCardDelete={handleIconCardDelete} closeAllIcon={closeAllIcon} iconCardSaved={iconCardSaved} iconCardInGallery={iconCardInGallery} iconCardDelete={iconCardDelete}/>
-      <MoviesCard test={props.test} handleIconCardSaved={handleIconCardSaved} handleIconCardInGallery={handleIconCardInGallery} handleIconCardDelete={handleIconCardDelete} closeAllIcon={closeAllIcon} iconCardSaved={iconCardSaved} iconCardInGallery={iconCardInGallery} iconCardDelete={iconCardDelete}/>
-      <MoviesCard test={props.test} handleIconCardSaved={handleIconCardSaved} handleIconCardInGallery={handleIconCardInGallery} handleIconCardDelete={handleIconCardDelete} closeAllIcon={closeAllIcon} iconCardSaved={iconCardSaved} iconCardInGallery={iconCardInGallery} iconCardDelete={iconCardDelete}/> */}
-
-      <div className="gallery-item" onMouseOver={props.test ? handleIconCardSaved : handleIconCardDelete} onMouseOut={closeAllIcon}>
-        <img className="gallery-item__poster" src={film} alt='film'/>
-        <div className="gallery-item__parameter">
-          <h2 className="gallery-item__title">33 слова о дизайне</h2>
-          <p className="gallery-item__duration">1ч 17м</p>
-        </div>
-        <button type="button" className={`button` + (iconCardSaved ? ' button_type_save' : ' button_type_hidden')}>Сохранить</button>
-        <button type="button" className={`button` + (iconCardDelete ? ' button_type_delete' : ' button_type_hidden')}></button>
-      </div>
-      <div className="gallery-item" handleIconCardInGallery>
-        <img className="gallery-item__poster" src={film2} alt='film'/>
-        <div className="gallery-item__parameter">
-          <h2 className="gallery-item__title">Киноальманах «100 лет дизайна»</h2>
-          <p className="gallery-item__duration">1ч 17м</p>
-        </div>
-        <button type="button" className="button button_type_ingallery"></button>
-      </div>
-      <div className="gallery-item">
-        <img className="gallery-item__poster" src={film3} alt='film'/>
-        <div className="gallery-item__parameter">
-          <h2 className="gallery-item__title">В погоне за Бенкси</h2>
-          <p className="gallery-item__duration">1ч 17м</p>
-        </div>
-        <button type="button" className="button button_type_delete"></button>
-      </div>
-      <div className="gallery-item">
-        <img className="gallery-item__poster" src={film4} alt='film'/>
-        <div className="gallery-item__parameter">
-          <h2 className="gallery-item__title">Баския: Взрыв реальности</h2>
-          <p className="gallery-item__duration">1ч 17м</p>
-        </div>
-        <button type="button" className="button button_type_save">Сохранить</button>
-      </div>
-      <div className="gallery-item">
-        <img className="gallery-item__poster" src={film5} alt='film'/>
-        <div className="gallery-item__parameter">
-          <h2 className="gallery-item__title">Бег это свобода</h2>
-          <p className="gallery-item__duration">1ч 17м</p>
-        </div>
-        <button type="button" className="button button_type_save">Сохранить</button>
-      </div>
-      {/* <div className="gallery-item">
-        <img className="gallery-item__poster" src={film6} alt='film'/>
-        <div className="gallery-item__parameter">
-          <h2 className="gallery-item__title">Книготорговцы</h2>
-          <p className="gallery-item__duration">1ч 17м</p>
-        </div>
-        <button type="button" className="button button_type_save">Сохранить</button>
-      </div>
-      <div className="gallery-item">
-        <img className="gallery-item__poster" src={film} alt='film'/>
-        <div className="gallery-item__parameter">
-          <h2 className="gallery-item__title">33 слова о дизайне</h2>
-          <p className="gallery-item__duration">1ч 17м</p>
-        </div>
-        <button type="button" className="button button_type_save">Сохранить</button>
-      </div>
-      <div className="gallery-item">
-        <img className="gallery-item__poster" src={film2} alt='film'/>
-        <div className="gallery-item__parameter">
-          <h2 className="gallery-item__title">Киноальманах «100 лет дизайна»</h2>
-          <p className="gallery-item__duration">1ч 17м</p>
-        </div>
-        <button type="button" className="button button_type_save">Сохранить</button>
-      </div>
-      <div className="gallery-item">
-        <img className="gallery-item__poster" src={film3} alt='film'/>
-        <div className="gallery-item__parameter">
-          <h2 className="gallery-item__title">В погоне за Бенкси</h2>
-          <p className="gallery-item__duration">1ч 17м</p>
-        </div>
-        <button type="button" className="button button_type_save">Сохранить</button>
-      </div>
-      <div className="gallery-item">
-        <img className="gallery-item__poster" src={film4} alt='film'/>
-        <div className="gallery-item__parameter">
-          <h2 className="gallery-item__title">Баския: Взрыв реальности</h2>
-          <p className="gallery-item__duration">1ч 17м</p>
-        </div>
-        <button type="button" className="button button_type_save">Сохранить</button>
-      </div>
-      <div className="gallery-item">
-        <img className="gallery-item__poster" src={film5} alt='film'/>
-        <div className="gallery-item__parameter">
-          <h2 className="gallery-item__title">Бег это свобода</h2>
-          <p className="gallery-item__duration">1ч 17м</p>
-        </div>
-        <button type="button" className="button button_type_save">Сохранить</button>
-      </div>
-      <div className="gallery-item">
-        <img className="gallery-item__poster" src={film6} alt='film'/>
-        <div className="gallery-item__parameter">
-          <h2 className="gallery-item__title">Книготорговцы</h2>
-          <p className="gallery-item__duration">1ч 17м</p>
-        </div>
-        <button type="button" className="button button_type_save">Сохранить</button>
-      </div> */}
+    <section>
+      {props.atMoviesPage ? 
+      (<>
+        <p className={props.isNotFound && !props.isLoading ? 'text-error': 'text-error-hidden'}>Ничего не найдено</p>
+        <p className={props.isServerError && !props.isLoading ? 'text-error': 'text-error-hidden'}>Во время запроса произошла ошибка. Возможно, проблема с соединением или сервер недоступен. Подождите немного и попробуйте ещё раз</p>
+        <ul className="gallery__list">
+          {props.moviesList.slice(0, showMoviesCard).map((card, i) => {
+            return <MoviesCard card={card} handleDislike={props.handleDislike} savedMoviesList={props.savedMoviesList} findoutMoviesLike={props.findoutMoviesLike} handleDeleteMovie={props.handleDeleteMovie} isMoviesSaved={props.isMoviesSaved} imgUrl={props.imgUrl} atMoviesPage={props.atMoviesPage} handleSaveMovie={props.handleSaveMovie} />
+          })}
+        </ul>
+        <button className={props.moviesList.length < 8 || showMoviesCard >= props.moviesList.length ? 'button button_type_hidden' : 'button button_type_open-more'} type="button" onClick={handleMoreButtonClick}>Ещё</button>  
+      </>) : (<>
+        <p className={props.isNotFound && !props.isLoading ? 'text-error': 'text-error-hidden'}>Ничего не найдено</p>
+        <p className={props.isServerError && !props.isLoading ? 'text-error': 'text-error-hidden'}>Во время запроса произошла ошибка. Возможно, проблема с соединением или сервер недоступен. Подождите немного и попробуйте ещё раз</p>
+        <ul className="gallery__list">
+          {props.moviesList.map((card, i) => {
+            return <MoviesCard card={card} moviesList={props.moviesList} savedMoviesList={props.savedMoviesList} handleDeleteMovie={props.handleDeleteMovie} imgUrl={props.imgUrl} isMoviesSaved={props.isMoviesSaved} atPageSavedMovies={props.atPageSavedMovies} showButtonDelete={props.showButtonDelete} />
+          })}
+        </ul>
+      </>)}  
     </section>
   );
 }

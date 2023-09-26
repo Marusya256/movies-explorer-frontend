@@ -20,6 +20,8 @@
 
 .search-form__input-cover {
   margin-bottom: 20px;
+  position: relative;
+  min-height: 69px;
 }
 
 .search-form__input_type_search {
@@ -41,9 +43,23 @@
   background-color: #484848;
 }
 
-/* .search-form__input-error
+.search-form__input-error {
+  color: aliceblue;
+  position: absolute;
+  width: 220px;
+  bottom: -5px;
+  left: 10px;
+  color: #EE3465;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  visibility: visible;
+}
 
-.username-error */
+.input-error-hidden {
+  visibility: hidden;
+}
 
 .search-form__input_type_checkbox-button {
   appearance: none;

@@ -7,8 +7,16 @@ function Footer() {
       <div className="footer__container">
         <p className="footer__copyrigth">© 2020</p>
         <ul className="footer__list-of-partners">
-          <li className="footer__list-item">Яндекс.Практикум</li>
-          <li className="footer__list-item">Github</li>
+          <li className="footer__list-item">
+            <a className="footer__link" href='https://practicum.yandex.ru/' target="_blank" rel="noreferrer">
+              Яндекс.Практикум
+            </a>
+          </li>
+          <li className="footer__list-item">
+            <a className="footer__link" href='https://github.com/' target="_blank" rel="noreferrer">
+              Github
+            </a>  
+          </li>
         </ul>
       </div>
     </footer>
