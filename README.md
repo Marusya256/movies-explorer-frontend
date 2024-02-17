@@ -1,8 +1,8 @@
 # Сервис по поиску фильмов
 
 ## Структура проекта
-+ movies-explorer-frontend
-+ [movies-explorer-backend](https://github.com/Marusya256/movies-explorer-api)
++ Frontend
++ [Backend](https://github.com/Marusya256/movies-explorer-api)
 
 ## Выполнила следующие задачи
 + создала сервер на express;
@@ -29,6 +29,24 @@
 ## Технологии
 + Reacr, React Router, Хуки (useState, useEffects, useContext);
 + работа с API, БЭМ, Git, HOC-компоненты.
+
+## Инструкция по запуску
+1.	Создайте папку и перейдите в нее
+```
+Cd <Имя-папки>
+```
+2.	Склонируйте этот репозиторий
+```
+git clone https://github.com/Marusya256/movies-explorer-frontend.git
+```
+3.	Установите все зависимости
+```
+npm install или yarn
+```
+4.	Запустите проект
+```
+npm start или yarn start
+```
 
 ## Системные требования
 Для запуска потребуется версия Node.js - 18.15.0
